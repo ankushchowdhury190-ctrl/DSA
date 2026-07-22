@@ -5,11 +5,11 @@ class Solution {
 
         for(int i = 0; i < s.length(); i++){
             if(!sIndex.containsKey(s.charAt(i))){
-                sIndex.put(s.charAt(i), i);
+                sIndex.put(s.charAt(i),i);
             }
 
             if(!tIndex.containsKey(t.charAt(i))){
-                tIndex.put(t.charAt(i), i);
+                tIndex.put(t.charAt(i),i);
             }
 
             if(!sIndex.get(s.charAt(i)).equals(tIndex.get(t.charAt(i)))){
