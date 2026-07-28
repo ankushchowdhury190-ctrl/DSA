@@ -1,22 +1,36 @@
 class Solution {
-    public int romanToInt(String s) {
-        int ans = 0, num = 0;
-        for (int i = s.length()-1; i>=0; i--){
-            switch (s.charAt(i)){
-                case 'I': num = 1; break;
-                case 'V': num = 5; break;
-                case 'X': num = 10; break;
-                case 'L': num = 50; break;
-                case 'C': num = 100; break;
-                case 'D': num = 500; break;
-               case 'M': num = 1000; break;
+    public int getval(char ch1){
+        switch (ch1){
+                case 'I': return 1;
+                case 'V': return 5;
+                case 'X': return 10;
+                case 'L': return 50;
+                case 'C': return 100;
+                case 'D': return 500;
+                case 'M': return 1000;
+                default : return 0;
 
             }
-            if ( 4* num < ans ) ans -=num;
-            else ans += num;
+        }
+        public int romanToInt(String s) {
+            int n = s.length();
+            int sum = 0;
+            for (int i = 0;i<n ;i++){
+                char ch1 = s.charAt(i);
+                if(i+1<n && getval(ch1) < getval(s.charAt(i+1))){
+                    sum = sum- getval(ch1);
+                
 
-        
-         }
-    return ans ;
+                }else{
+                    sum += getval(ch1);
+                }
+
+                
+
+                
+            }
+            return sum;
+
+
     }
 }    
