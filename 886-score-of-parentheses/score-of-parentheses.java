@@ -9,9 +9,10 @@ class Solution {
 
             }else{
 
-                int inside = stack.pop();
-                int score = (inside == 0) ? 1 : 2*inside;
-                stack.push(stack.pop() + score);
+                int top = stack.pop();
+                int a = Math.max(2*top, 1);
+                int b = stack.pop();
+                stack.push(a+b);
 
 
             }
